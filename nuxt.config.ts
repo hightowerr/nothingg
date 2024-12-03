@@ -12,5 +12,9 @@ export default defineNuxtConfig({
   typescript: {
     strict: true
   },
-  devtools: { enabled: true }
+  nitro: {
+    moduleSideEffects: ['firebase-admin/app'],
+  },
+  devtools: { enabled: true },
+  compatibilityDate: '2024-12-03'
 })
