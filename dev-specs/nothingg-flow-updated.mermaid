@@ -1,0 +1,34 @@
+flowchart TD
+    Landing[Landing Page] --> MainContent
+    
+    subgraph MainContent [Single Page Sections]
+        direction TB
+        HowWorks[How it Works]
+        Features[Features]
+        Products[Products]
+        FAQ[FAQ]
+        Demo[Demo]
+    end
+
+    subgraph Authentication [Separate Pages]
+        SignUp[Sign Up Page]
+        Login[Login Page]
+        Reset[Password Reset Page]
+    end
+
+    MainContent --> |Get Started| SignUp
+    MainContent --> |Login Button| Login
+    SignUp --> |Success| Dashboard
+    Login --> |Success| Dashboard
+    Login --> |Forgot Password| Reset
+    Reset --> Login
+
+    subgraph Dashboard [User Dashboard]
+        Profile[Profile Management]
+        SubMgmt[Subscription Management]
+        AccSettings[Account Settings]
+        Logout[Logout]
+    end
+
+    Dashboard --> |Logout| Landing
+    Products --> |Upgrade| SubMgmt
